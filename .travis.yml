@@ -28,12 +28,9 @@ python:
   - '3.6'
 install:
   - pip install -r requirements.txt
-  - pip install codacy-coverage
   - pip install webdriver-manager
 script:
   - cd decide
   - sudo apt-get install firefox
   - cp travis_local_settings.py local_settings.py
-  - coverage run --branch --source=. ./manage.py test --keepdb
-  - coverage xml
-  - python-codacy-coverage -r coverage.xml
+  - python manage.py test

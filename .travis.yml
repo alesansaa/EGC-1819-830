@@ -34,3 +34,10 @@ script:
   - sudo apt-get install firefox
   - cp travis_local_settings.py local_settings.py
   - python manage.py test
+deploy:
+  provider: heroku
+  app: pruebahalex
+  strategy: git
+  api_key: $HEROKU_AUTH_TOKEN
+  on:
+    branch: master
